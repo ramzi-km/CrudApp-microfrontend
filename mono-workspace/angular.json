@@ -30,9 +30,13 @@
 							"projects/host-app/src/assets"
 						],
 						"styles": [
+							"node_modules/bootstrap/scss/bootstrap.scss",
+							"node_modules/bootstrap-icons/font/bootstrap-icons.scss",
 							"projects/host-app/src/styles.scss"
 						],
-						"scripts": [],
+						"scripts": [
+							"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+						],
 						"extraWebpackConfig": "projects/host-app/webpack.config.js",
 						"commonChunk": false
 					},
@@ -103,9 +107,13 @@
 							"projects/host-app/src/assets"
 						],
 						"styles": [
+							"node_modules/bootstrap/scss/bootstrap.scss",
+							"node_modules/bootstrap-icons/font/bootstrap-icons.scss",
 							"projects/host-app/src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [
+							"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+						]
 					}
 				}
 			}
@@ -137,9 +145,13 @@
 							"projects/mfe-app/src/assets"
 						],
 						"styles": [
+							"node_modules/bootstrap/scss/bootstrap.scss",
+							"node_modules/bootstrap-icons/font/bootstrap-icons.scss",
 							"projects/mfe-app/src/styles.scss"
 						],
-						"scripts": [],
+						"scripts": [
+							"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+						],
 						"extraWebpackConfig": "projects/mfe-app/webpack.config.js",
 						"commonChunk": false
 					},
@@ -210,9 +222,13 @@
 							"projects/mfe-app/src/assets"
 						],
 						"styles": [
+							"node_modules/bootstrap/scss/bootstrap.scss",
+							"node_modules/bootstrap-icons/font/bootstrap-icons.scss",
 							"projects/mfe-app/src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [
+							"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+						]
 					}
 				}
 			}
