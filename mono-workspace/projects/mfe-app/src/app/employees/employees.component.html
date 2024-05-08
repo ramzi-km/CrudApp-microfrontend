@@ -1,4 +1,166 @@
-<ol class="list-group ">
-    <li class="list-group-item list-group-item-success">crud app</li>
-    <li class=" list-group-item list-group-item-success">connect mfe and host</li>
-</ol>
+<div class="p-5">
+  <div class="d-flex p-2">
+    <button class="btn btn-primary ms-auto" (click)="open(content)">
+      <i class="bi bi-plus-circle"></i> Add employee
+    </button>
+
+    <!-- add employee modal -->
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add employee</h4>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="modal.dismiss('Cross click')"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addEmployeeForm" (ngSubmit)="submitAddEmployee()">
+          <div class="mb-3">
+            <label for="name">Name</label>
+            <div class="input-group">
+              <input
+                class="form-control"
+                placeholder="Full name"
+                formControlName="name"
+                type="text"
+              />
+            </div>
+            <div
+              class="text-danger fs-6"
+              *ngIf="
+                addEmployeeFc['name'].touched && addEmployeeFc['name'].invalid
+              "
+            >
+              <label *ngIf="addEmployeeFc['name'].errors?.['required']"
+                >name is required </label
+              ><label *ngIf="addEmployeeFc['name'].errors?.['noEmptySpaces']"
+                >name must be atleast 3 characters</label
+              >
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="name">Name</label>
+            <div class="input-group">
+              <input
+                class="form-control"
+                placeholder="Full name"
+                formControlName="name"
+                type="text"
+              />
+            </div>
+            <div
+              class="text-danger fs-6"
+              *ngIf="
+                addEmployeeFc['name'].touched && addEmployeeFc['name'].invalid
+              "
+            >
+              <label *ngIf="addEmployeeFc['name'].errors?.['required']"
+                >name is required </label
+              ><label *ngIf="addEmployeeFc['name'].errors?.['noEmptySpaces']"
+                >name must be atleast 3 characters</label
+              >
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="designation">Designation</label>
+            <div class="input-group">
+              <input
+                id="designation"
+                class="form-control"
+                placeholder="role"
+                name="designation"
+                formControlName="designation"
+                type="text"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="email">Email</label>
+            <div class="input-group">
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="eg:johndoe@example.com"
+                name="email"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="empId">Employee Id</label>
+            <div class="input-group">
+              <input
+                formControlName="empId"
+                type="text"
+                id="empId"
+                class="form-control"
+                placeholder="emp123"
+                name="empId"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="status">Status</label>
+            <div class="input-group">
+              <select formControlName="status" name="status" id="status">
+                <option value="{{ true }}">Active</option>
+                <option value="{{ false }}">Not Active</option>
+              </select>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+            <button
+              [disabled]="addEmployeeForm.invalid"
+              type="submit"
+              class="btn btn-primary"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          (click)="modal.close('Save click')"
+        >
+          Close
+        </button>
+      </div>
+    </ng-template>
+    <!-- add employee modal end -->
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr class="table-dark">
+        <th scope="col">N.O</th>
+        <th scope="col">Name</th>
+        <th scope="col">Designation</th>
+        <th scope="col">Email</th>
+        <th scope="col">EmpId</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let employee of employees;
+          let i = index;
+          trackBy: employeeByName
+        "
+      >
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          {{ employee.name }}
+        </td>
+        <td>{{ employee.area | number }}</td>
+        <td>{{ employee.population | number }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
